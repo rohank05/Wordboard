@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1",
+    "title": "Design Login UI",
+    "status": "pending",
+    "assignee": "jiya",
+    "dueDate": "2025-05-10",
+    "description": "Create a responsive login form with validation."
+  },
+  {
+    "id": "2",
+    "title": "Setup Redux Store",
+    "status": "in-progress",
+    "assignee": "Bob",
+    "dueDate": "2025-05-12",
+    "description": ""
+  },
+  {
+    "id": "3",
+    "title": "Fix Navbar Bug",
+    "status": "done",
+    "assignee": "Charlie",
+    "dueDate": "2025-05-08",
+    "description": "Navbar not sticking to top on scroll in mobile view."
+  },
+  {
+    "id": "4",
+    "title": "Write Unit Tests",
+    "status": "pending",
+    "assignee": "Alice",
+    "dueDate": "2025-05-15",
+    "description": ""
+  },
+  {
+    "id": "5",
+    "title": "Deploy to Vercel",
+    "status": "in-progress",
+    "assignee": "Bob",
+    "dueDate": "2025-05-11",
+    "description": "Deploy latest stable build to Vercel with env variables configured."
+  }
+]
