@@ -4,11 +4,12 @@ import InputField from "../elements/InputField";
 import SelectField from "../elements/SelectField";
 import { ASSIGNEE, STATUS } from "@/app/constant/config";
 import TextAreaField from "../elements/TextAreaField";
+import { Task } from "@/app/types/tasks";
 
 interface TaskModalProps {
 	isOpen: boolean;
 	onClose: () => void;
-	onSubmit: (value:Task) => void;
+	onSubmit: (value: Task) => void;
 	heading: string;
 	modalType: string;
 	task?: Task;
@@ -31,9 +32,6 @@ export default function TaskModal({
 	task,
 }: TaskModalProps) {
 	if (!isOpen) return null;
-
-	console.log(modalType);
-	
 
 	const initialValues =
 		modalType === "edit" && task
@@ -103,25 +101,33 @@ export default function TaskModal({
 										touched={touched.description}
 										cls='mt-4'
 									/>
-									<SelectField
-										options={ASSIGNEE}
-										value={values.assignee}
-										onChange={(val) => setFieldValue("assignee", val)}
-										placeholder='Select Assignee'
-										cls='w-full mt-6'
-										required
-										error={errors.assignee}
-									/>
+									{modalType == "add" && (
+										<div className='mt-4'>
+											<SelectField
+												options={ASSIGNEE}
+												value={values.assignee}
+												onChange={(val) => setFieldValue("assignee", val)}
+												placeholder='Select Assignee'
+												cls='w-full mt-1'
+												required
+												error={errors.assignee}
+												label='Assignee'
+											/>
+										</div>
+									)}
 									{modalType == "edit" && (
-										<SelectField
-											options={STATUS}
-											value={values.status}
-											onChange={(val) => setFieldValue("status", val)}
-											placeholder='Select Status'
-											cls='w-full mt-6'
-											required={modalType == "edit" ? true : false}
-											error={errors.status}
-										/>
+										<div className='mt-4'>
+											<SelectField
+												options={STATUS}
+												value={values.status}
+												onChange={(val) => setFieldValue("status", val)}
+												placeholder='Select Status'
+												cls='w-full mt-1'
+												required={modalType == "edit" ? true : false}
+												error={errors.status}
+												label='Status'
+											/>
+										</div>
 									)}
 									<InputField
 										label='Due Date'

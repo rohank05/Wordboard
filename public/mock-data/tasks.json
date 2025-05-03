@@ -11,7 +11,7 @@
     "id": "2",
     "title": "Setup Redux Store",
     "status": "in-progress",
-    "assignee": "Bob",
+    "assignee": "rahul",
     "dueDate": "2025-05-12",
     "description": ""
   },
@@ -19,7 +19,7 @@
     "id": "3",
     "title": "Fix Navbar Bug",
     "status": "done",
-    "assignee": "Charlie",
+    "assignee": "jiya",
     "dueDate": "2025-05-08",
     "description": "Navbar not sticking to top on scroll in mobile view."
   },
@@ -27,7 +27,7 @@
     "id": "4",
     "title": "Write Unit Tests",
     "status": "pending",
-    "assignee": "Alice",
+    "assignee": "jiya",
     "dueDate": "2025-05-15",
     "description": ""
   },
@@ -35,7 +35,7 @@
     "id": "5",
     "title": "Deploy to Vercel",
     "status": "in-progress",
-    "assignee": "Bob",
+    "assignee": "sumit",
     "dueDate": "2025-05-11",
     "description": "Deploy latest stable build to Vercel with env variables configured."
   }

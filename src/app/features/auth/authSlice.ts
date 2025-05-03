@@ -36,6 +36,8 @@ const authSlice = createSlice({
       state.user = null;
       if (typeof window !== 'undefined') {
         localStorage.removeItem('user');
+        localStorage.removeItem('tasks');
+        window.location.href = "/";
       }
     },
   },

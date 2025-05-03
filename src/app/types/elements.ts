@@ -1,16 +1,16 @@
-interface Options {
+export interface Options {
     label:string;
     value:string | number;
 }
 
-interface PaginationProps {
+export interface PaginationProps {
     currentPage: number;
     totalPages: number;
     onPageChange: (page: number) => void;
 }
 
 
-interface InputFieldType {
+export interface InputFieldType {
     label?: string;
     required?: boolean;
     cls?: string;
@@ -20,11 +20,11 @@ interface InputFieldType {
     placeholder: string;
     error?: string;
     touched?: boolean;
-    handleChange: any;
-    handleBlur: any;
+    handleChange: (val:any)=>void;
+    handleBlur: (val:any)=> void;
 }
 
-interface CustomSelectProps {
+export interface CustomSelectProps {
     options: Options[];
     value: string | number;
     onChange: (val: string | number) => void;
@@ -32,9 +32,10 @@ interface CustomSelectProps {
     cls?: string;
     required?:boolean;
     error?:string;
+    label?:string;
 }
 
-interface ConfirmModalProps {
+export interface ConfirmModalProps {
     isOpen: boolean;
     onClose: () => void;
     onConfirm: () => void;

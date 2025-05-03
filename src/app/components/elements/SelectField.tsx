@@ -1,4 +1,5 @@
 import { Capitalize } from "@/app/constant/config";
+import { CustomSelectProps } from "@/app/types/elements";
 import { useEffect, useRef, useState } from "react";
 
 export default function SelectField({
@@ -6,9 +7,10 @@ export default function SelectField({
 	value,
 	onChange,
 	placeholder,
-    cls,
+	cls,
 	required,
-	error
+	error,
+	label,
 }: CustomSelectProps) {
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -31,29 +33,35 @@ export default function SelectField({
 	}, []);
 
 	return (
-		<div ref={selectRef} className='relative min-w-[150px]'>
-			<button
-				className={`${cls} min-w-[150px] appearance-none border-2 border-[#7F265B] text-[#7F265B] rounded-full pl-4 pr-4 py-2 focus:outline-none flex items-center justify-between`}
-				onClick={() => setIsOpen(!isOpen)}>
-				{value ? Capitalize(value) : placeholder}
-				<span className='ml-2'>&#9660;</span>
-			</button>
-			{isOpen && (
-				<ul className='absolute left-0 right-0 mt-2 bg-white border-2 border-[#7F265B] rounded-xl shadow-lg'>
-					{options.map((option) => (
-						<li
-							key={option.value}
-							onClick={() => {
-								onChange(option.value);
-								setIsOpen(false);
-							}}
-							className='px-4 py-2 text-[#7F265B] cursor-pointer hover:bg-[#7F265B] hover:text-white transition-colors'>
-							{option.label}
-						</li>
-					))}
-				</ul>
-			)}
-			{required && <span className='text-red-500 text-xs'>{error}</span>}
-		</div>
+			<div ref={selectRef} className='relative min-w-[150px]'>
+				{label && (
+					<label className='text-base font-normal text-[#525252]'>
+						{label} {required && <span className='text-red-500'>*</span>}
+					</label>
+				)}
+				<button
+					type='button'
+					className={`${cls} min-w-[150px] appearance-none border-2 border-[#7F265B] text-[#7F265B] rounded-full pl-4 pr-4 py-2 focus:outline-none flex items-center justify-between cursor-pointer`}
+					onClick={() => setIsOpen(!isOpen)}>
+					{value ? Capitalize(value) : placeholder}
+					<span className='ml-2'>&#9660;</span>
+				</button>
+				{isOpen && (
+					<ul className='absolute left-0 right-0 mt-2 bg-white border-2 border-[#7F265B] rounded-xl shadow-lg z-50'>
+						{options.map((option) => (
+							<li
+								key={option.value}
+								onClick={() => {
+									onChange(option.value);
+									setIsOpen(false);
+								}}
+								className='px-4 py-2 text-[#7F265B] cursor-pointer hover:bg-[#7F265B] hover:text-white transition-colors'>
+								{option.label}
+							</li>
+						))}
+					</ul>
+				)}
+				{required && <span className='text-red-500 text-xs'>{error}</span>}
+			</div>
 	);
 }

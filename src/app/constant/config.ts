@@ -14,3 +14,4 @@ export const Capitalize = (str: string | number) => {
     if (typeof str !== "string") return str;
     return str.charAt(0).toUpperCase() + str.slice(1);
 };
+

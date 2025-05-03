@@ -1,3 +1,5 @@
+import { ConfirmModalProps } from "@/app/types/elements";
+
 export default function DeleteModal({
 	isOpen,
 	onClose,

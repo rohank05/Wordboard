@@ -47,7 +47,7 @@ export default function LoginForm() {
 			<section className='w-full h-screen flex'>
 				{/* left section */}
 				<div className='w-[60%] h-full xl:flex hidden'>
-					<div className="w-full h-full bg-[url('/assets/illustration.png')] bg-cover bg-center"></div>
+					<div className="w-full h-full bg-[url('/assets/login-bg.jpeg')] bg-cover bg-center"></div>
 				</div>
 				{/* right section */}
 				<div className='xl:w-[40%] w-full bg-white flex items-center justify-center overflow-y-scroll'>
@@ -57,7 +57,7 @@ export default function LoginForm() {
 							Login to your Account
 						</p>
 						<p className='mt-1 text-base font-normal text-[#525252]'>
-							See what is going on with your business
+							See what is going on with your Workboard
 						</p>
 						<Formik
 							initialValues={{ username: "", password: "" }}
@@ -101,18 +101,7 @@ export default function LoginForm() {
 										required
 										cls='mt-4'
 									/>
-									<div className='w-full flex items-center justify-between'>
-										<div className='flex items-center justify-center gap-x-3'>
-											<button className='w-[12px] h-[12px] bg-[[]#7F265B] rounded-[1px] flex items-center justify-center text-white'></button>
-											<p className='mt-1 text-[12px] font-normal text-[ #A1A1A1]'>
-												Remember Me
-											</p>
-										</div>
-										<p className='mt-1 text-[12px] text-[#7F265B] font-semibold'>
-											Forgot Password?
-										</p>
-									</div>
-									<button className='mt-15 w-full rounded-md bg-[#7F265B] h-[50px] flex items-center justify-center text-white font-extrabold cursor-pointer'>
+									<button className='mt-12 w-full rounded-md bg-[#7F265B] h-[50px] flex items-center justify-center text-white font-extrabold cursor-pointer'>
 										Login
 									</button>
 								</form>
