@@ -1,3 +1,8 @@
+export interface User{
+    username:string,
+    password:string
+}
+
 export interface Options {
     label:string;
     value:string | number;

@@ -1,15 +1,18 @@
 "use client";
-
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import InputField from "../elements/InputField";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { useRouter } from "next/navigation";
-import { useDispatch, useSelector } from "react-redux";
-import { users } from "../../../../public/mock-data/users";
+
 import { login, logout } from "@/app/features/auth/authSlice";
 import { RootState } from "@/app/store/store";
+
+import { users } from "../../../../public/mock-data/users";
+import InputField from "../elements/InputField";
+import { User } from "@/app/types/elements";
+
 
 const LoginSchema = Yup.object().shape({
 	username: Yup.string()
@@ -30,9 +33,9 @@ export default function LoginForm() {
 		}
 	}, []);
 
-	const handleLogin = (values: any) => {
+	const handleLogin = (values:User) => {
 		const user = users.find(
-			(u: any) =>
+			(u) =>
 				u.username === values.username && u.password === values.password
 		);
 		if (user) {
@@ -63,7 +66,6 @@ export default function LoginForm() {
 							initialValues={{ username: "", password: "" }}
 							validationSchema={LoginSchema}
 							onSubmit={(values) => {
-								console.log("Form Submitted:", values);
 								handleLogin(values);
 							}}>
 							{({
