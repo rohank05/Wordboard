@@ -16,13 +16,16 @@ export default function ProtectedRoute({ children, allowedRoles }: Props) {
 
 	useEffect(() => {
 		if (!user) {
-			router.push("/dashboard");
-		} else if (!allowedRoles.includes(user.role)) {
-			router.push("/unauthorized");
+				router.replace("/");
+		}
+		else if (!allowedRoles.includes(user.role)) {
+			router.replace("/unauthorized");
 		}
 	}, [user]);
 
-	if (!user || !allowedRoles.includes(user.role)) return null;
+	if (!user || !allowedRoles.includes(user.role)) {
+		return null; 
+	}
 
 	return <>{children}</>;
 }
