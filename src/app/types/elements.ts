@@ -25,8 +25,8 @@ export interface InputFieldType {
     placeholder: string;
     error?: string;
     touched?: boolean;
-    handleChange: (val:any)=>void;
-    handleBlur: (val:any)=> void;
+    handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+    handleBlur: (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 }
 
 export interface CustomSelectProps {

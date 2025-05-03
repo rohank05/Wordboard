@@ -1,5 +1,6 @@
 import { Capitalize } from "@/app/constant/config";
 import { Task } from "@/app/types/tasks";
+import Image from "next/image";
 type TableProps = {
 	user?: { username: string; role: string };
 	data: Task[];
@@ -64,9 +65,11 @@ const Table = ({ data, handleEdit, handleDelete, user }: TableProps) => {
 								<button
 									className='mr-2 cursor-pointer'
 									onClick={() => handleEdit(task)}>
-									<img
+									<Image
 										src='/assets/pencil.svg'
 										alt='Edit'
+										width={25}
+										height={25}
 										className='w-5 h-5 inline-block'
 									/>
 								</button>

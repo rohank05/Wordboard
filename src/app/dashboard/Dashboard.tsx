@@ -22,12 +22,10 @@ import { logout, selectUser } from "../features/auth/authSlice";
 import TaskModal from "../components/modals/TaskModal";
 import DeleteModal from "../components/modals/DeleteModal";
 import {
-	loadingState,
 	startLoading,
 	stopLoading,
 } from "../features/loaderSlice";
 import TaskCharts from "./Chart";
-import Loader from "../components/custom/Loader";
 
 export default function Dashboard() {
 	const dispatch = useDispatch();
@@ -46,11 +44,13 @@ export default function Dashboard() {
 	const [selectedTask, setSelectedTask] = useState<Task>();
 	const [showDropdown, setShowDropdown] = useState(false);
 
+
 	useEffect(() => {
 		const fetchTasks = async () => {
 			dispatch(startLoading());
 			const tasksFromStorage = localStorage.getItem("tasks");
 			const tasks = tasksFromStorage ? JSON.parse(tasksFromStorage) : [];
+
 
 			if (tasks.length > 0) {
 				dispatch(setTasks({ tasks, role, username }));
@@ -74,7 +74,7 @@ export default function Dashboard() {
 
 	const filteredTasks = useMemo(() => {
 		return tasks
-			.filter((task: any) => {
+			.filter((task: Task) => {
 				return (
 					(!statusFilter || task.status === statusFilter) &&
 					(!assigneeFilter || task.assignee === assigneeFilter)
@@ -138,7 +138,7 @@ export default function Dashboard() {
 					<div
 						className='bg-[#7F265B] text-white w-10 h-10 rounded-full flex items-center justify-center cursor-pointer'
 						onClick={() => setShowDropdown(!showDropdown)}>
-						{/* {user ? Capitalize(user.username.slice(0, 1)) : "U"} */} U
+						{user ? Capitalize(user.username.slice(0, 1)) : "U"}
 					</div>
 					{/* <div className='ml-2 font-medium'>
 						{user ? Capitalize(user.username) : "User"} User
@@ -163,7 +163,7 @@ export default function Dashboard() {
 									className='flex items-center justify-between cursor-pointer'
 									onClick={() => dispatch(logout())}>
 									<p className='pr-4 text-[#525252] font-medium'>Logout</p>
-									<img
+									<Image
 										src='/assets/logout.svg'
 										alt='logout'
 										width={25}
@@ -184,7 +184,7 @@ export default function Dashboard() {
 						</p>
 					</div>
 					<div className='xl:w-[30%] w-full sm:flex items-center justify-end mt-8 xl:mt-0'>
-						{user.role == "admin" && (
+						{user && user.role == "admin" && (
 							<button
 								className='bg-[#7F265B] text-white rounded-4xl px-4 py-2 cursor-pointer sm:w-auto w-full'
 								onClick={() => setIsAddModalOpen(true)}>
@@ -218,7 +218,7 @@ export default function Dashboard() {
 								cls='sm:w-auto w-full'
 							/>
 						</div>
-						{user.role == "admin" && (
+						{user && user.role == "admin" && (
 							<div className='sm:mt-0 mt-2'>
 								<SelectField
 									options={ASSIGNEE}
@@ -244,7 +244,7 @@ export default function Dashboard() {
 					{view == "table" ? (
 						<div className='mt-6'>
 							<Table
-								user={user}
+								user={user ? user : {username:'' , role:''}}
 								data={currentTasks}
 								handleEdit={(task) => {
 									setIsEditModalOpen(true);
