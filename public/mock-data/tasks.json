@@ -38,5 +38,285 @@
     "assignee": "sumit",
     "dueDate": "2025-05-11",
     "description": "Deploy latest stable build to Vercel with env variables configured."
+  },
+  {
+    "id": "6",
+    "title": "Create API Documentation",
+    "status": "pending",
+    "assignee": "anita",
+    "dueDate": "2025-05-16",
+    "description": "Document all backend API endpoints."
+  },
+  {
+    "id": "7",
+    "title": "Add Dark Mode Support",
+    "status": "done",
+    "assignee": "rahul",
+    "dueDate": "2025-05-05",
+    "description": "Allow users to switch between light and dark themes."
+  },
+  {
+    "id": "8",
+    "title": "Optimize Image Loading",
+    "status": "in-progress",
+    "assignee": "sumit",
+    "dueDate": "2025-05-14",
+    "description": "Implement lazy loading for all homepage images."
+  },
+  {
+    "id": "9",
+    "title": "Setup CI/CD Pipeline",
+    "status": "pending",
+    "assignee": "jiya",
+    "dueDate": "2025-05-20",
+    "description": "Use GitHub Actions for build and deploy."
+  },
+  {
+    "id": "10",
+    "title": "Update Dependencies",
+    "status": "done",
+    "assignee": "anita",
+    "dueDate": "2025-05-04",
+    "description": "Update npm packages to latest versions."
+  },
+  {
+    "id": "11",
+    "title": "Add Profile Edit Feature",
+    "status": "pending",
+    "assignee": "rahul",
+    "dueDate": "2025-05-18",
+    "description": "Allow users to update their profile information."
+  },
+  {
+    "id": "12",
+    "title": "Fix Footer Responsiveness",
+    "status": "done",
+    "assignee": "sumit",
+    "dueDate": "2025-05-03",
+    "description": "Footer not aligning properly on smaller devices."
+  },
+  {
+    "id": "13",
+    "title": "Create 404 Page",
+    "status": "in-progress",
+    "assignee": "jiya",
+    "dueDate": "2025-05-09",
+    "description": "Design a custom 404 error page."
+  },
+  {
+    "id": "14",
+    "title": "Enhance Form Validation",
+    "status": "pending",
+    "assignee": "anita",
+    "dueDate": "2025-05-13",
+    "description": "Add Yup validations to all forms."
+  },
+  {
+    "id": "15",
+    "title": "Integrate Stripe Payments",
+    "status": "pending",
+    "assignee": "rahul",
+    "dueDate": "2025-05-22",
+    "description": "Allow payment via credit cards."
+  },
+  {
+    "id": "16",
+    "title": "Improve Lighthouse Score",
+    "status": "in-progress",
+    "assignee": "sumit",
+    "dueDate": "2025-05-21",
+    "description": "Improve performance and accessibility scores."
+  },
+  {
+    "id": "17",
+    "title": "Setup ESLint and Prettier",
+    "status": "done",
+    "assignee": "jiya",
+    "dueDate": "2025-05-01",
+    "description": "Ensure consistent code formatting and linting."
+  },
+  {
+    "id": "18",
+    "title": "Configure Environment Variables",
+    "status": "pending",
+    "assignee": "anita",
+    "dueDate": "2025-05-23",
+    "description": "Add .env support and secure keys."
+  },
+  {
+    "id": "19",
+    "title": "Build Admin Dashboard",
+    "status": "in-progress",
+    "assignee": "rahul",
+    "dueDate": "2025-05-30",
+    "description": "Create dashboard with analytics charts."
+  },
+  {
+    "id": "20",
+    "title": "Fix Image Upload Bug",
+    "status": "done",
+    "assignee": "sumit",
+    "dueDate": "2025-05-02",
+    "description": "Image upload fails when file is too large."
+  },
+  {
+    "id": "21",
+    "title": "Add Tooltips to Buttons",
+    "status": "pending",
+    "assignee": "jiya",
+    "dueDate": "2025-05-19",
+    "description": "Add helpful tooltips to icon buttons."
+  },
+  {
+    "id": "22",
+    "title": "User Onboarding Flow",
+    "status": "in-progress",
+    "assignee": "anita",
+    "dueDate": "2025-05-28",
+    "description": "Walk users through features on first login."
+  },
+  {
+    "id": "23",
+    "title": "Add Pagination to Task List",
+    "status": "done",
+    "assignee": "rahul",
+    "dueDate": "2025-05-06",
+    "description": "Paginate long task lists for better performance."
+  },
+  {
+    "id": "24",
+    "title": "Refactor Sidebar Component",
+    "status": "pending",
+    "assignee": "sumit",
+    "dueDate": "2025-05-17",
+    "description": "Clean up nested logic and redundant state."
+  },
+  {
+    "id": "25",
+    "title": "Implement Role-Based Access",
+    "status": "pending",
+    "assignee": "jiya",
+    "dueDate": "2025-05-25",
+    "description": "Restrict access to routes based on user role."
+  },
+  {
+    "id": "26",
+    "title": "Add Search to Tasks",
+    "status": "in-progress",
+    "assignee": "anita",
+    "dueDate": "2025-05-26",
+    "description": "Filter tasks by title or description."
+  },
+  {
+    "id": "27",
+    "title": "Implement Logout Timer",
+    "status": "done",
+    "assignee": "rahul",
+    "dueDate": "2025-05-07",
+    "description": "Auto logout after 30 mins of inactivity."
+  },
+  {
+    "id": "28",
+    "title": "Fix Modal Close Animation",
+    "status": "pending",
+    "assignee": "sumit",
+    "dueDate": "2025-05-24",
+    "description": "Smooth close animation for modal component."
+  },
+  {
+    "id": "29",
+    "title": "Add Email Notification Service",
+    "status": "in-progress",
+    "assignee": "jiya",
+    "dueDate": "2025-05-29",
+    "description": "Send email updates for task changes."
+  },
+  {
+    "id": "30",
+    "title": "Add Mobile Nav Menu",
+    "status": "done",
+    "assignee": "anita",
+    "dueDate": "2025-05-01",
+    "description": "Hamburger menu for mobile devices."
+  },
+  {
+    "id": "31",
+    "title": "Convert CSS to Tailwind",
+    "status": "pending",
+    "assignee": "rahul",
+    "dueDate": "2025-05-27",
+    "description": "Refactor CSS files into Tailwind utility classes."
+  },
+  {
+    "id": "32",
+    "title": "Add Loading Spinner",
+    "status": "in-progress",
+    "assignee": "sumit",
+    "dueDate": "2025-05-13",
+    "description": "Show loader during data fetches."
+  },
+  {
+    "id": "33",
+    "title": "Fix Sidebar Scroll Bug",
+    "status": "done",
+    "assignee": "jiya",
+    "dueDate": "2025-05-04",
+    "description": "Sidebar should scroll independently."
+  },
+  {
+    "id": "34",
+    "title": "Add Multi-language Support",
+    "status": "pending",
+    "assignee": "anita",
+    "dueDate": "2025-06-01",
+    "description": "Support English and Hindi languages."
+  },
+  {
+    "id": "35",
+    "title": "Update Task Status Colors",
+    "status": "in-progress",
+    "assignee": "rahul",
+    "dueDate": "2025-05-20",
+    "description": "Color-code tasks by status."
+  },
+  {
+    "id": "36",
+    "title": "Fix Layout Shift on Load",
+    "status": "done",
+    "assignee": "sumit",
+    "dueDate": "2025-05-06",
+    "description": "Prevent layout shift due to fonts/images."
+  },
+  {
+    "id": "37",
+    "title": "Integrate Google Auth",
+    "status": "pending",
+    "assignee": "jiya",
+    "dueDate": "2025-06-05",
+    "description": "Enable login via Google account."
+  },
+  {
+    "id": "38",
+    "title": "Add Task History Log",
+    "status": "in-progress",
+    "assignee": "anita",
+    "dueDate": "2025-06-02",
+    "description": "Track changes made to tasks."
+  },
+  {
+    "id": "39",
+    "title": "Setup Error Monitoring",
+    "status": "done",
+    "assignee": "rahul",
+    "dueDate": "2025-05-03",
+    "description": "Use Sentry for real-time error tracking."
+  },
+  {
+    "id": "40",
+    "title": "Add Task Comments",
+    "status": "pending",
+    "assignee": "sumit",
+    "dueDate": "2025-06-03",
+    "description": "Allow users to comment on tasks."
   }
 ]

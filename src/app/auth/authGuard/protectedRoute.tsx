@@ -1,31 +1,30 @@
 "use client";
 
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-import { RootState } from "@/app/store/store";
 
-type Props = {
-	children: React.ReactNode;
-	allowedRoles: string[];
-};
+import { RootState } from "@/app/lib/store/store";
+import { AuthGuardType } from "@/app/types/auth";
 
-export default function ProtectedRoute({ children, allowedRoles }: Props) {
+
+const ProtectedRoute = ({ children, allowedRoles }: AuthGuardType) => {
 	const user = useSelector((state: RootState) => state.auth.user);
 	const router = useRouter();
 
 	useEffect(() => {
 		if (!user) {
-				router.replace("/");
-		}
-		else if (!allowedRoles.includes(user.role)) {
+			router.replace("/");
+		} else if (!allowedRoles.includes(user.role)) {
 			router.replace("/unauthorized");
 		}
 	}, [user]);
 
 	if (!user || !allowedRoles.includes(user.role)) {
-		return null; 
+		return null;
 	}
 
 	return <>{children}</>;
-}
+};
+
+export default ProtectedRoute

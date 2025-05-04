@@ -1,21 +1,17 @@
-import { RootState } from '@/app/store/store';
-import { Task, Tasks } from '@/app/types/tasks';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface TaskState {
-    tasks: Tasks[];
-}
+import { RootState } from '@/app/lib/store/store';
+import { Task, Tasks, TaskState } from '@/app/types/tasks';
 
 const initialState: TaskState = {
     tasks: [],
 };
-
 const taskSlice = createSlice({
     name: 'tasks',
     initialState,
     reducers: {
         setTasks: (state, action: PayloadAction<{ tasks: Tasks[], role?: string, username?: string }>) => {
-            const { tasks, role, username } = action.payload;            
+            const { tasks, role, username } = action.payload;
             if (role === 'admin') {
                 state.tasks = tasks;
             } else if (role === 'user') {
@@ -44,7 +40,7 @@ const taskSlice = createSlice({
                 localStorage.setItem('tasks', JSON.stringify(state.tasks));
             }
         },
-        deleteTask(state, action: PayloadAction<number|undefined>) {
+        deleteTask(state, action: PayloadAction<number | undefined>) {
             state.tasks = state.tasks.filter(task => task.id !== action.payload);
             localStorage.setItem('tasks', JSON.stringify(state.tasks));
         },

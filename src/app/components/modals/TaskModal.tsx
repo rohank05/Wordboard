@@ -1,27 +1,14 @@
 import { Formik } from "formik";
 import * as Yup from "yup";
-import InputField from "../elements/InputField";
-import SelectField from "../elements/SelectField";
+
+import InputField from "@/app/components/elements/inputField";
+import SelectField from "@/app/components/elements/selectField";
+import TextAreaField from "@/app/components/elements/textAreaField";
+
 import { ASSIGNEE, STATUS } from "@/app/constant/config";
-import TextAreaField from "../elements/TextAreaField";
-import { Task } from "@/app/types/tasks";
+import { TaskModalProps } from "@/app/types/elements";
+import { TaskSchema } from "@/app/schemas/taskSchema";
 
-interface TaskModalProps {
-	isOpen: boolean;
-	onClose: () => void;
-	onSubmit: (value: Task) => void;
-	heading: string;
-	modalType: string;
-	task?: Task;
-}
-
-const TaskSchema = Yup.object().shape({
-	title: Yup.string().required("Title is required"),
-	description: Yup.string(),
-	assignee: Yup.string().required("Assignee is required"),
-	status: Yup.string().required("Status is required"),
-	dueDate: Yup.string().required("Due date is required"),
-});
 
 export default function TaskModal({
 	heading,
@@ -64,7 +51,6 @@ export default function TaskModal({
 							initialValues={initialValues}
 							validationSchema={TaskSchema}
 							onSubmit={(values) => {
-								console.log("Form Submitted:", values);
 								onSubmit(values);
 							}}>
 							{({
@@ -89,6 +75,7 @@ export default function TaskModal({
 										touched={touched.title}
 										required
 										cls='mt-8'
+										max={20}
 									/>
 									<TextAreaField
 										label='Description'
@@ -100,6 +87,7 @@ export default function TaskModal({
 										error={errors.description}
 										touched={touched.description}
 										cls='mt-4'
+										max={200}
 									/>
 									{modalType == "add" && (
 										<div className='mt-4'>
@@ -141,6 +129,7 @@ export default function TaskModal({
 										touched={touched.dueDate}
 										required
 										cls='mt-4'
+										max={10}
 									/>
 
 									<div className='w-full flex items-center justify-between gap-4 mt-8'>

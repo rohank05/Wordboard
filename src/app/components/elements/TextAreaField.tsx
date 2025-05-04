@@ -12,6 +12,7 @@ const TextAreaField = ({
 	touched,
 	handleChange,
 	handleBlur,
+	max,
 	...props
 }: InputFieldType) => {
 	const hasError = touched && error;
@@ -30,6 +31,7 @@ const TextAreaField = ({
 				onBlur={handleBlur}
 				placeholder={placeholder}
 				rows={4}
+				maxLength={max}
 				className='w-full border border-[#DED2D9] rounded-md px-4 py-2 text-black focus:outline-none focus:ring-2 focus:ring-[#7F265B] resize-none'
 				{...props}
 			/>

@@ -1,5 +1,5 @@
-import ProtectedRoute from "../auth-guard/ProtectedRoute";
-import Dashboard from "./Dashboard";
+import ProtectedRoute from "../auth/authGuard/protectedRoute";
+import Dashboard from "./_partials/dashboard";
 
 export default function DashboardPage() {
 	return (

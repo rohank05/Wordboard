@@ -15,3 +15,9 @@ export interface Tasks {
     description: string;
     dueDate: string;
 }
+
+export interface TaskState {
+    tasks: Tasks[];
+}
+
+

@@ -1,12 +1,8 @@
-import { Capitalize } from "@/app/constant/config";
-import { Task } from "@/app/types/tasks";
 import Image from "next/image";
-type TableProps = {
-	user?: { username: string; role: string };
-	data: Task[];
-	handleEdit: (task: Task) => void;
-	handleDelete: (task: Task) => void;
-};
+
+import { Capitalize } from "@/app/constant/config";
+import { TableProps } from "@/app/types/dashboard";
+import { Task } from "@/app/types/tasks";
 
 const Table = ({ data, handleEdit, handleDelete, user }: TableProps) => {
 	return (

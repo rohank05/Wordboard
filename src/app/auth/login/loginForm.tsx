@@ -1,46 +1,46 @@
 "use client";
-import { useEffect } from "react";
+
+import { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Formik } from "formik";
-import * as Yup from "yup";
-
-import { login, logout } from "@/app/features/auth/authSlice";
-import { RootState } from "@/app/store/store";
 
 import { users } from "../../../../public/mock-data/users";
-import InputField from "../elements/InputField";
-import { User } from "@/app/types/elements";
+import { login, logout } from "@/app/lib/features/auth/authSlice";
+import { RootState } from "@/app/lib/store/store";
 
+import InputField from "@/app/components/elements/inputField";
+import { User } from "@/app/types/auth";
+import { LoginSchema } from "@/app/schemas/loginSchema";
+import PasswordToggle from "@/app/components/hoc/passwordToggle";
+import {
+	startLoading,
+	stopLoading,
+} from "@/app/lib/features/loader/loaderSlice";
 
-const LoginSchema = Yup.object().shape({
-	username: Yup.string()
-		.min(3, "Invalid username")
-		.required("Username is required"),
-	password: Yup.string()
-		.min(6, "Password must be at least 6 characters")
-		.required("Password is required"),
-});
-export default function LoginForm() {
+const LoginForm = () => {
 	const router = useRouter();
 	const dispatch = useDispatch();
 	const user = useSelector((state: RootState) => state.auth.user);
 
-  useEffect(() => {
-		if (user) {
+	const PasswordField = PasswordToggle(InputField);
+
+	useEffect(() => {
+		if (user) {			
 			dispatch(logout());
 		}
 	}, []);
 
-	const handleLogin = (values:User) => {
+	const handleLogin = (values: User) => {
 		const user = users.find(
-			(u) =>
-				u.username === values.username && u.password === values.password
+			(u) => u.username === values.username && u.password === values.password
 		);
 		if (user) {
+			dispatch(startLoading());
 			dispatch(login({ username: user.username, role: user.role }));
 			router.push("/dashboard");
+			dispatch(stopLoading());
 		} else {
 			alert("Invalid credentials");
 		}
@@ -48,11 +48,9 @@ export default function LoginForm() {
 	return (
 		<>
 			<section className='w-full h-screen flex'>
-				{/* left section */}
 				<div className='w-[60%] h-full xl:flex hidden'>
 					<div className="w-full h-full bg-[url('/assets/login-bg.jpeg')] bg-cover bg-center"></div>
 				</div>
-				{/* right section */}
 				<div className='xl:w-[40%] w-full bg-white flex items-center justify-center overflow-y-scroll'>
 					<div className='sm:w-[70%] w-[90%] flex flex-col items-start'>
 						<Image src={"/assets/logo.svg"} width={60} height={60} alt='logo' />
@@ -89,20 +87,22 @@ export default function LoginForm() {
 										touched={touched.username}
 										required
 										cls='mt-12'
+										max={20}
 									/>
-									<InputField
+									<PasswordField
 										label='Password'
-										type={"password"}
-										name={"password"}
+										name='password'
 										value={values.password}
-										placeholder={"Enter your password"}
+										placeholder='Enter your password'
 										handleChange={handleChange}
 										handleBlur={handleBlur}
 										error={errors.password}
 										touched={touched.password}
 										required
 										cls='mt-4'
+										max={20}
 									/>
+
 									<button className='mt-12 w-full rounded-md bg-[#7F265B] h-[50px] flex items-center justify-center text-white font-extrabold cursor-pointer'>
 										Login
 									</button>
@@ -114,4 +114,6 @@ export default function LoginForm() {
 			</section>
 		</>
 	);
-}
+};
+
+export default LoginForm;

@@ -1,8 +1,7 @@
-// components/GlobalLoader.tsx
 "use client";
 
 import { useSelector } from "react-redux";
-import { RootState } from "@/app/store/store";
+import { RootState } from "@/app/lib/store/store";
 
 const Loader = () => {
 	const loading = useSelector((state: RootState) => state.loader.loading);

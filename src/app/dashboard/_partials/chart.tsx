@@ -1,19 +1,10 @@
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import { Capitalize } from "@/app/constant/config";
-import { Task } from "@/app/types/tasks";
 
-type ChartProps = {
-	data: Task[];
-};
-
-const StatusColor = ["#C63C51", "#FFA24C", "#86A788"]; 
-const AssigneeColor = ["#56021F", "#7D1C4A", "#D17D98", "#F4CCE9"];
-
-
+import { AssigneeColor, Capitalize, StatusColor } from "@/app/constant/config";
+import { ChartProps } from "@/app/types/dashboard";
 
 const ChartsView = ({ data }: ChartProps) => {
-	// Group data for charts
 	const statusCounts: Record<string, number> = {};
 	const assigneeCounts: Record<string, number> = {};
 
