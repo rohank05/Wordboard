@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Providers from "./lib/store/Providers";
-import Loader from "./components/custom/loader";
+import Loader from "./components/custom/Loader";
 
 export const metadata: Metadata = {
 	title: "Workboard",
@@ -14,7 +14,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang='en'>
+		<html lang="en">
 			<body>
 				<Providers>
 					<Loader />
